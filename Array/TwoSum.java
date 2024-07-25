@@ -1,16 +1,14 @@
 class TwoSum {
-    public int[] twoSum(int[] nums, int target) {
-        int []output = new int[2];
-        for(int i=0; i<nums.length; i++){
-            if (nums[i]<target) {
-                for(int j = i+1; j<nums.length; j++) {
-                    if (i!=j && nums[i]+nums[j]==target) {
-                        output[0] =i;
-                        output[1] =j;
-                    }
+    public int[] twoSum(int[] nums,  int target) {
+        int length = nums.length;
+        for (int dif = 1; dif < length; dif++) {
+            for (int right = dif; right < length; right++) {
+                int left = right - dif;
+                if (nums[left] + nums[right] == target) {
+                    return new int[] {left, right};
                 }
             }
         }
-        return output;
+        return new int[0];
     }
 }
